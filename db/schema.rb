@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_135815) do
     t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["completed_at"], name: "index_orders_on_completed_at"
     t.index ["merchant_id"], name: "index_orders_on_merchant_id"
     t.index ["shopper_id"], name: "index_orders_on_shopper_id"
   end
