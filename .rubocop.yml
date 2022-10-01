@@ -1,0 +1,9 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/spec/**/*'
