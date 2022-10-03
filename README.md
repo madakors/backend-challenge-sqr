@@ -17,10 +17,19 @@ To generate disbursements for the seeded data, run `docker-compose exec web rail
 - Run `bundle exec rails s -p 3000 -b 0.0.0.0` to run the application
 - Run `bundle exec rails disbursements:calculate` to generate the disbursements for the seed data
 
-
 ### Accessing the API
 
 Once the application is up and running, disbursements can be queried by accessing
 http://localhost:3000/disbursements?week=1&year=2018&merchant_id=2
 
 This URL should be accessible whether you're running it through Docker or not
+
+### Running specs
+
+#### With Docker
+
+With both containers running, install gems with `docker-compose exec web env RAILS_ENV=test bundle install`
+Then run specs with `docker-compose exec web env RAILS_ENV=test bundle exec rspec`
+
+#### Without Docker
+`bundle exec rspec`
