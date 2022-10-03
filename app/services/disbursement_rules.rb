@@ -2,6 +2,9 @@
 
 # Class with rules for disbursements
 class DisbursementRules
+  # Return the disbursement for a given order
+  # @param order [Order] an instance of the Order model
+  # @return [BigDecimal] the disbursement amount
   def self.for_order(order)
     percentage = case order.amount
                  when 0...50

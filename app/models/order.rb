@@ -12,6 +12,9 @@ class Order < ApplicationRecord
       .where("DATE_PART('year', completed_at) = ?", year)
   }
 
+  # Return the weeks that have completed orders
+  # @return [Array<Array<Integer, Integer>>] a list of weeks in the format of
+  # [year, week], for instance: [[2022, 30], [2022, 31]]
   def self.weeks_and_years
     select("
            DATE_PART('week', completed_at) as \"week\",
