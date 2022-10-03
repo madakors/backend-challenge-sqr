@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.4"
 services:
   postgresql:
     image: "postgres:14.5"
@@ -8,11 +8,19 @@ services:
       POSTGRES_USER: sqr
       POSTGRES_PASSWORD: sqr
       POSTGRES_DB: sqr_development
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails db:prepare && bundle exec rails db:seed && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+    environment:
+      - RAILS_ENV=development
+      - SQR_DATABASE_HOST=postgresql
+      - SQR_DATABASE_PASSWORD=sqr
     ports:
-      - "5432:5432"
-  redis:
-    image: "redis:7.0.5"
-    ports:
-      - "6379:6379"
+      - "3000:3000"
+    depends_on:
+      - postgresql
+
 volumes:
   pgdata:
