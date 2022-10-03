@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_135815) do
     t.integer "merchant_id", null: false
     t.integer "week", null: false
     t.integer "year", null: false
-    t.decimal "amount", precision: 15, scale: 2, null: false
+    t.decimal "amount", precision: 15, scale: 3, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["merchant_id", "week", "year"], name: "index_disbursements_on_merchant_id_and_week_and_year", unique: true
@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_135815) do
   create_table "orders", force: :cascade do |t|
     t.integer "merchant_id", null: false
     t.integer "shopper_id", null: false
-    t.decimal "amount", precision: 15, scale: 2, null: false
+    t.decimal "amount", precision: 15, scale: 3, null: false
     t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

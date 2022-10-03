@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[7.0]
     create_table :orders do |t|
       t.integer :merchant_id, null: false
       t.integer :shopper_id, null: false
-      t.decimal :amount, precision: 15, scale: 2, null: false
+      t.decimal :amount, precision: 15, scale: 3, null: false
       t.datetime :completed_at, default: nil
 
       t.timestamps

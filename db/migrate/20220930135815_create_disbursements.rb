@@ -4,7 +4,7 @@ class CreateDisbursements < ActiveRecord::Migration[7.0]
       t.integer :merchant_id, null: false
       t.integer :week, null: false
       t.integer :year, null: false
-      t.decimal :amount, precision: 15, scale: 2, null: false
+      t.decimal :amount, precision: 15, scale: 3, null: false
 
       t.timestamps
     end
