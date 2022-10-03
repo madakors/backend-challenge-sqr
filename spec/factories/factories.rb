@@ -23,3 +23,12 @@ FactoryBot.define do
     nif { '411111111Z' }
   end
 end
+
+FactoryBot.define do
+  factory :disbursement do
+    merchant
+    week { 1 }
+    year { 2022 }
+    amount { 5.0 }
+  end
+end
